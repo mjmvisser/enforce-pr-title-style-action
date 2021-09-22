@@ -79,7 +79,7 @@ function run() {
                 if (!regex.test(title)) {
                     core.debug("Regex " + regex + " failed with title " + title);
                     core.info("Title Failed");
-                    core.setFailed("PullRequest title does not start with a Jira Issue key.");
+                    core.setFailed("PullRequest title does not start with a Jira Issue key (e.g. FOO-666: My PR Title.");
                     return [2 /*return*/];
                 }
                 core.info("Title Passed");
@@ -99,7 +99,7 @@ function getRegex() {
         if (!/(?<=^|[a-z]\-|[\s\p{Punct}&&[^\-]])([A-Z][A-Z0-9_]*)/.test(projectKey)) {
             throw new Error("Project Key  \"" + projectKey + "\" is invalid");
         }
-        regex = new RegExp("(^" + projectKey + "-){1}(\\d)+(\\s)+(.)+");
+        regex = new RegExp("(^" + projectKey + "-){1}(\\d)+(:)?(\\s)+(.)+");
     }
     return regex;
 }

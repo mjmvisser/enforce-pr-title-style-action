@@ -39,7 +39,7 @@ describe("index", () => {
         it("uses a project key if it exists", () => {
             process.env[`INPUT_${name.replace(/ /g, '_').toUpperCase()}`] = "AB";
             const regex = getRegex();
-            expect(regex).toEqual(new RegExp(`(^AB-){1}(\\d)+(\\s)+(.)+`));
+            expect(regex).toEqual(new RegExp(`(^AB-){1}(\\d)+(:)?(\\s)+(.)+`));
             expect(regex.test("AB-43 stuff and things")).toBe(true);
         });
 
