@@ -22,6 +22,10 @@ ab-1 Initialize Project
 Ab 1 Initialize Project
 ```
 
+```
+AB-1: Initialize Project
+````
+
 Valid Pull Request titles must also include a short description after the Issue Key. Therefore the following is not valid. 
 
 ```
